@@ -2,6 +2,8 @@ import React from 'react';
 import HomePage from './pages/homepage/homepage.component';
 import {Route,Switch} from 'react-router-dom';
 import './App.css';
+import ShopPage from './pages/shop/shop.component';
+
 
 const HatsPage = () => {
   return <div><h1>HATS</h1></div>
@@ -23,6 +25,11 @@ let route=[
       id:0,
       path:'/',
       component:HomePage,
+    },
+    {
+      id:6,
+      path:'/shop',
+      component:ShopPage
     },
     {
       id:1,
@@ -49,10 +56,12 @@ let route=[
       path:'/mens',
       component:MensPage,
     }
+
 ]
 function App() {
   return (
     <div >
+
       <Switch>
     {route.map(e=><Route path={e.path} exact component={e.component} />)}
     </Switch>
