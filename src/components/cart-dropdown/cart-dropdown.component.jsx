@@ -6,7 +6,8 @@ import CustomeButton from "../custome-button/custome-button.component";
 import { connect } from 'react-redux'
 import CartItem from "../cart-item/cart-item.component";
 import { withRouter } from 'react-router-dom'
-const CartDropDown = ({ cartItems, history }) => (
+import { toggleCartHidden } from "../../redux/cart/cart.actions";
+const CartDropDown = ({ cartItems, history, dispatch }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       { 
@@ -15,7 +16,10 @@ const CartDropDown = ({ cartItems, history }) => (
           <span className="empty-message">Your cart is empty  </span>
       }
     </div>
-    <CustomeButton onClick={()=>history.push('checkout')}>Go to checkout</CustomeButton>
+    <CustomeButton onClick={()=>{
+      history.push('checkout');
+      dispatch(toggleCartHidden())
+      }}>Go to checkout</CustomeButton>
   </div>
 );
 
