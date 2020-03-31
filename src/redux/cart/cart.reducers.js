@@ -6,7 +6,7 @@ const INITITAL_STATE = {
   hidden: true,
   cartItems: []
 };
-console.log(INITITAL_STATE.cartItems);
+
 
 const cartRedcuer = (state = INITITAL_STATE, action) => {
   switch (action.type) {
