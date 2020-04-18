@@ -2,7 +2,7 @@ import React from "react";
 import "./sign-in.style.scss";
 import FormInput from "../form-input/form-input.compoment";
 import CustomeButton from "../custome-button/custome-button.component";
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -10,20 +10,19 @@ class SignIn extends React.Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
   }
-    // Function to change the value of on the event
-    handleChange = event => {
-      const { value, name } = event.target;
-      this.setState({ [name]: value });
-    };
-   // setting the state to the initiale values
-    handleSubmit = event => {
-      event.preventDefault();
-      this.setState({ email: "", password: "" });
-    };
-
+  // Function to change the value of on the event
+  handleChange = (event) => {
+    const { value, name } = event.target;
+    this.setState({ [name]: value });
+  };
+  // setting the state to the initiale values
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.setState({ email: "", password: "" });
+  };
 
   render() {
     return (
@@ -39,7 +38,7 @@ class SignIn extends React.Component {
             value={this.state.email}
             required
           />
-    
+
           <FormInput
             name="password"
             handleChange={this.handleChange}
@@ -49,12 +48,12 @@ class SignIn extends React.Component {
             required
           />
           <div className="buttons">
-          <CustomeButton type="submit" >Sign in</CustomeButton>
-          <CustomeButton onClick={signInWithGoogle} isGoogleSignin>Sign in with google</CustomeButton>
-       
+            <CustomeButton type="submit">Sign in</CustomeButton>
+            <CustomeButton onClick={signInWithGoogle} isGoogleSignin>
+              Sign in with google
+            </CustomeButton>
           </div>
-         </form>
-        
+        </form>
       </div>
     );
   }
